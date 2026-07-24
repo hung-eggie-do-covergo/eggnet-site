@@ -1,0 +1,8 @@
+services:
+  eggnet-site:
+    build: .
+    image: eggnet-site:local
+    container_name: eggnet-site
+    restart: unless-stopped
+    ports:
+      - "8093:80"
