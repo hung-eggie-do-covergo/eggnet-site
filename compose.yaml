@@ -1,8 +1,8 @@
 services:
   eggnet-site:
-    build: .
-    image: eggnet-site:local
+    image: ghcr.io/hung-eggie-do-covergo/eggnet-site:latest
     container_name: eggnet-site
     restart: unless-stopped
     ports:
       - "8093:80"
+    pull_policy: always
