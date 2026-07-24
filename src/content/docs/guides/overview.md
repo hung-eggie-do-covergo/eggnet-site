@@ -1,0 +1,44 @@
+---
+title: What is eggnet?
+description: A tour of a single-box, all-flash homelab and everything it serves.
+---
+
+eggnet is a **home server** — one mini PC that runs the services a household actually uses, on hardware you own, with your data staying home.
+
+It replaces a pile of subscriptions and cloud accounts with self-hosted equivalents, all reachable at clean `https://` addresses, all behind a single login, all backed up on a schedule.
+
+## The one-paragraph version
+
+A fanless mini PC runs **Proxmox** (a hypervisor) on **mirrored NVMe** storage. Services live in lightweight **containers**. A **reverse proxy** gives each one a real HTTPS name; a self-hosted **DNS server** resolves those names locally and blocks ads network-wide. A self-hosted **identity provider** puts every app behind one sign-on. Everything is private by default over a **mesh VPN**, with a few things exposed publicly through a **tunnel** — no ports forwarded, no home IP leaked. Secrets live in a **secrets manager**, not scattered in config files. Backups run to a separate drive, with an offsite copy.
+
+## What it serves
+
+| Category | What you get |
+| --- | --- |
+| **Media** | Stream a movie/TV library to any device; hardware-transcoded. |
+| **Photos** | Phone auto-backup, timeline, sharing — a private Google Photos. |
+| **Documents** | Scan-to-searchable archive with OCR; full-text search. |
+| **Knowledge** | Bookmarks with archiving, notes, a résumé builder. |
+| **Home** | Budgeting, home-automation bridge, file shares. |
+| **Infra** | DNS + ad-blocking, reverse proxy, identity/SSO, secrets, monitoring, backups. |
+
+## Why one box?
+
+You do **not** need a rack, a NAS, and three Raspberry Pis to run a serious homelab. A modern mini PC with multiple NVMe slots has more than enough CPU, RAM, and fast storage for a household's worth of services — while drawing a few watts, making no noise, and fitting on a shelf.
+
+The tradeoff of one box is **blast radius**: when it's down, everything's down. The whole architecture is designed around keeping that box's reboot tolerable and its data recoverable — which is what most of these guides are really about.
+
+## How to read these guides
+
+They're ordered roughly in build order, but each stands alone:
+
+1. **[The philosophy](/guides/philosophy/)** — the handful of rules that keep a one-box lab sane.
+2. **[Hardware & Proxmox base](/guides/hardware/)** — the mini PC, ZFS, the hypervisor.
+3. **[LXC vs Docker](/guides/services/)** — where each service should actually run.
+4. **[Networking](/guides/networking/)** — reverse proxy, split-horizon DNS, VPN, tunnel.
+5. **[Single sign-on](/guides/auth/)** — one identity provider in front of everything.
+6. **[Secrets](/guides/secrets/)** — get credentials out of your config files.
+7. **[Storage & backups](/guides/backups/)** — the part people skip until it's too late.
+8. **[Monitoring](/guides/monitoring/)** — know it broke before a family member tells you.
+
+Nothing here is exotic. It's boring, well-worn tools wired together carefully — which is exactly what you want running your family's photos.

@@ -1,0 +1,82 @@
+---
+title: eggnet
+description: A self-hosted homelab running on a single mini PC — and a field guide to building your own.
+template: splash
+hero:
+  tagline: One small, silent mini PC quietly running a private cloud — media, photos, docs, DNS, auth, the lot. Here's what it runs, why it's built this way, and how you can build your own.
+  image:
+    file: ../../assets/egg.svg
+  actions:
+    - text: Read the build guides
+      link: /guides/overview/
+      icon: right-arrow
+    - text: The philosophy
+      link: /guides/philosophy/
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What it runs
+
+<CardGrid>
+	<Card title="Media & photos" icon="star">
+		A full media library and a private photo cloud for the family — streaming and phone backup. Your own Netflix + Google Photos, on hardware you own.
+	</Card>
+	<Card title="Docs & tools" icon="document">
+		A searchable document archive, bookmarks, notes, a résumé builder, budgeting — a shelf of small self-hosted apps, each behind one login.
+	</Card>
+	<Card title="Private DNS" icon="setting">
+		Network-wide ad & tracker blocking, split-horizon names so every service gets a real HTTPS address, and per-device rules — served locally.
+	</Card>
+	<Card title="One login, everywhere" icon="approve-check">
+		Single sign-on across every app via a self-hosted identity provider. No per-app passwords; groups decide who sees what.
+	</Card>
+</CardGrid>
+
+## The shape of it
+
+<CardGrid>
+	<Card title="One box" icon="laptop">
+		A fanless mini PC with a stack of NVMe drives — all-flash, near-silent, a few watts of power. No rack, no separate NAS.
+	</Card>
+	<Card title="Proxmox + ZFS" icon="setting">
+		A hypervisor base with mirrored ZFS storage: containers for isolation, snapshots for safety, and a clean line between hot data and backups.
+	</Card>
+	<Card title="Reachable anywhere" icon="rocket">
+		Private by default over a mesh VPN; selectively public through a tunnel — no ports forwarded, no home IP exposed.
+	</Card>
+	<Card title="Reproducible" icon="pencil">
+		Reverse proxy, DNS, auth, and secrets are all configured as data you can rebuild from. These guides are those patterns, generalized.
+	</Card>
+</CardGrid>
+
+## Built with
+
+Boring, well-worn, open-source tools — wired together carefully. A selection of what's running:
+
+<div class="logo-grid" role="list">
+	<a class="logo-tile" role="listitem" href="https://github.com/proxmox" target="_blank" rel="noopener noreferrer"><img src="/logos/proxmox.svg" alt="Proxmox" loading="lazy" width="44" height="44"/><span>Proxmox</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/caddyserver/caddy" target="_blank" rel="noopener noreferrer"><img src="/logos/caddy.svg" alt="Caddy" loading="lazy" width="44" height="44"/><span>Caddy</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/tailscale/tailscale" target="_blank" rel="noopener noreferrer"><img src="/logos/tailscale.svg" alt="Tailscale" loading="lazy" width="44" height="44"/><span>Tailscale</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/pocket-id/pocket-id" target="_blank" rel="noopener noreferrer"><img src="/logos/pocket-id.svg" alt="Pocket ID" loading="lazy" width="44" height="44"/><span>Pocket ID</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener noreferrer"><img src="/logos/uptime-kuma.svg" alt="Uptime Kuma" loading="lazy" width="44" height="44"/><span>Uptime Kuma</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/jellyfin/jellyfin" target="_blank" rel="noopener noreferrer"><img src="/logos/jellyfin.svg" alt="Jellyfin" loading="lazy" width="44" height="44"/><span>Jellyfin</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/immich-app/immich" target="_blank" rel="noopener noreferrer"><img src="/logos/immich.svg" alt="Immich" loading="lazy" width="44" height="44"/><span>Immich</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/paperless-ngx/paperless-ngx" target="_blank" rel="noopener noreferrer"><img src="/logos/paperless-ngx.svg" alt="Paperless-ngx" loading="lazy" width="44" height="44"/><span>Paperless</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/dani-garcia/vaultwarden" target="_blank" rel="noopener noreferrer"><img src="/logos/vaultwarden.svg" alt="Vaultwarden" loading="lazy" width="44" height="44"/><span>Vaultwarden</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/karakeep-app/karakeep" target="_blank" rel="noopener noreferrer"><img src="/logos/karakeep.svg" alt="Karakeep" loading="lazy" width="44" height="44"/><span>Karakeep</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/actualbudget/actual" target="_blank" rel="noopener noreferrer"><img src="/logos/actual-budget.svg" alt="Actual Budget" loading="lazy" width="44" height="44"/><span>Actual</span></a>
+	<a class="logo-tile" role="listitem" href="https://github.com/home-assistant/core" target="_blank" rel="noopener noreferrer"><img src="/logos/home-assistant.svg" alt="Home Assistant" loading="lazy" width="44" height="44"/><span>Home Assistant</span></a>
+</div>
+
+<p style="font-size:.8rem;color:var(--sl-color-gray-3);margin-top:-.5rem;">Logos belong to their respective projects. Screenshots aren't shown — a public page shouldn't expose the family's real photos, library, or dashboards.</p>
+
+## Build your own
+
+Every guide is written to be **copied, not admired** — the reasoning first, then the pattern, then the gotchas that cost real hours. Start with the [overview](/guides/overview/), or jump to whatever you're wiring up today.
+
+:::note[These guides are generalized on purpose]
+No real tokens, addresses, or topology from the live setup are published here — that would just be handing out an attack surface. You'll see the *patterns* and example configs with placeholders; swap in your own.
+:::

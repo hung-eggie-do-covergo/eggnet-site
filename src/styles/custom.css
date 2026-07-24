@@ -1,0 +1,100 @@
+/* eggnet — egg-yolk amber on warm charcoal. Overrides Starlight's default palette. */
+
+:root {
+	/* accent: egg yolk */
+	--sl-color-accent-low: #3d2c02;
+	--sl-color-accent: #eaa300;
+	--sl-color-accent-high: #ffd777;
+
+	/* warm-tinted charcoal neutrals (slight amber bias — chosen, not pure grey) */
+	--sl-color-white: #fbf7ee;
+	--sl-color-gray-1: #eee7d8;
+	--sl-color-gray-2: #c8c0b0;
+	--sl-color-gray-3: #968d7c;
+	--sl-color-gray-4: #635b4d;
+	--sl-color-gray-5: #423c31;
+	--sl-color-gray-6: #2b2620;
+	--sl-color-black: #1a1712;
+
+	--sl-font: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--sl-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+}
+
+/* light theme */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #ffeab8;
+	--sl-color-accent: #b87700;
+	--sl-color-accent-high: #4a3100;
+	--sl-color-white: #1a1712;
+	--sl-color-gray-1: #2b2620;
+	--sl-color-gray-2: #423c31;
+	--sl-color-gray-3: #6f6656;
+	--sl-color-gray-4: #968d7c;
+	--sl-color-gray-5: #cfc7b6;
+	--sl-color-gray-6: #eee7d8;
+	--sl-color-gray-7: #f6f1e5;
+	--sl-color-black: #fbf7ee;
+}
+
+/* hero: warm glow behind the title */
+.hero > .stack {
+	--overlay-blurple: color-mix(in oklch, var(--sl-color-accent) 22%, transparent);
+}
+.hero h1 {
+	letter-spacing: -0.02em;
+}
+.hero .tagline {
+	color: var(--sl-color-gray-2);
+}
+
+/* mono, uppercased eyebrow feel on card titles */
+.card .title {
+	font-family: var(--sl-font-mono);
+	letter-spacing: -0.01em;
+}
+
+/* subtle amber left-edge on blockquotes/asides already themed by accent */
+
+/* "Built with" logo grid */
+.logo-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+	gap: 0.75rem;
+	margin: 1.5rem 0 1rem;
+	padding: 0;
+	list-style: none;
+}
+.logo-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	padding: 1.1rem 0.5rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 12px;
+	background: var(--sl-color-gray-6);
+	text-decoration: none;
+	color: var(--sl-color-gray-2);
+	transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+a.logo-tile:hover {
+	border-color: var(--sl-color-accent);
+	background: color-mix(in oklab, var(--sl-color-gray-6) 80%, var(--sl-color-accent));
+	transform: translateY(-2px);
+}
+.logo-tile img {
+	width: 44px;
+	height: 44px;
+	object-fit: contain;
+}
+.logo-tile span {
+	font-size: 0.78rem;
+	font-family: var(--sl-font-mono);
+	letter-spacing: -0.02em;
+	text-align: center;
+}
+@media (prefers-reduced-motion: reduce) {
+	.logo-tile { transition: none; }
+	a.logo-tile:hover { transform: none; }
+}
