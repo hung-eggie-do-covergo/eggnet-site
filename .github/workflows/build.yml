@@ -3,11 +3,13 @@ name: build-and-push
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'compose.yaml' # the stamp-commit below only touches compose.yaml — don't rebuild on it
   workflow_dispatch:
 
 permissions:
-  contents: read
-  packages: write
+  contents: write # to commit the pinned image tag back
+  packages: write # to push to GHCR
 
 jobs:
   build:
@@ -30,3 +32,16 @@ jobs:
           tags: |
             ghcr.io/hung-eggie-do-covergo/eggnet-site:latest
             ghcr.io/hung-eggie-do-covergo/eggnet-site:${{ github.sha }}
+
+      - name: Pin the built image into compose.yaml and commit
+        run: |
+          sed -i "s|image: ghcr.io/hung-eggie-do-covergo/eggnet-site:.*|image: ghcr.io/hung-eggie-do-covergo/eggnet-site:${{ github.sha }}|" compose.yaml
+          git config user.name "eggie"
+          git config user.email "eggie@eggnet.dev"
+          if ! git diff --quiet compose.yaml; then
+            git add compose.yaml
+            git commit -m "deploy ${GITHUB_SHA:0:7} [skip ci]"
+            git push
+          else
+            echo "compose already pinned to this sha"
+          fi
