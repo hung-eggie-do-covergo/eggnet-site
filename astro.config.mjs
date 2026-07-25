@@ -32,6 +32,7 @@ export default defineConfig({
 						{ label: 'Single sign-on with OIDC', slug: 'guides/auth' },
 						{ label: 'Secrets management', slug: 'guides/secrets' },
 						{ label: 'Storage & backups', slug: 'guides/backups' },
+						{ label: 'Media automation', slug: 'guides/media' },
 						{ label: 'Monitoring', slug: 'guides/monitoring' },
 					],
 				},
