@@ -24,17 +24,32 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Build guides',
+					label: 'Foundation',
 					items: [
 						{ label: 'Hardware & Proxmox base', slug: 'guides/hardware' },
 						{ label: 'LXC vs Docker: where things run', slug: 'guides/services' },
+					],
+				},
+				{
+					label: 'Network & access',
+					items: [
 						{ label: 'Networking: proxy & split-horizon DNS', slug: 'guides/networking' },
 						{ label: 'Single sign-on with OIDC', slug: 'guides/auth' },
 						{ label: 'Secrets management', slug: 'guides/secrets' },
+					],
+				},
+				{
+					label: 'Reliability',
+					items: [
 						{ label: 'Storage & backups', slug: 'guides/backups' },
 						{ label: 'Disaster recovery', slug: 'guides/disaster-recovery' },
-						{ label: 'Media automation', slug: 'guides/media' },
 						{ label: 'Monitoring', slug: 'guides/monitoring' },
+					],
+				},
+				{
+					label: 'Workloads',
+					items: [
+						{ label: 'Media automation', slug: 'guides/media' },
 					],
 				},
 			],
