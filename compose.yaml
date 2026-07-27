@@ -1,6 +1,6 @@
 services:
   eggnet-site:
-    image: ghcr.io/hung-eggie-do-covergo/eggnet-site:62f357a6649a0f5a9d067da2ce0328235137bd35
+    image: ghcr.io/hung-eggie-do-covergo/eggnet-site:02a9dc57e0d5641965e7f62adc6a9040eebb0a14
     container_name: eggnet-site
     restart: unless-stopped
     ports:
