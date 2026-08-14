@@ -1,9 +1,9 @@
 ---
 title: eggnet
-description: A self-hosted homelab running on a single mini PC — and a field guide to building your own.
+description: A self-hosted homelab on a mini PC — one all-flash box, or a compute node paired with a storage node — and a field guide to building your own.
 template: splash
 hero:
-  tagline: One small, silent mini PC quietly running a private cloud — media, photos, docs, DNS, auth, the lot. Here's what it runs, why it's built this way, and how you can build your own.
+  tagline: A small, silent mini PC quietly running a private cloud — media, photos, docs, DNS, auth, the lot. On one all-flash box, or a compute node paired with a dedicated storage node. Here's what it runs, why it's built this way, and how you can build your own.
   image:
     file: ../../assets/egg.svg
   actions:
@@ -38,8 +38,8 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## The shape of it
 
 <CardGrid>
-	<Card title="One box" icon="laptop">
-		A fanless mini PC with a stack of NVMe drives — all-flash, near-silent, a few watts of power. No rack, no separate NAS.
+	<Card title="One box, or two" icon="laptop">
+		Start all-flash on a single mini PC — near-silent, a few watts. Grow into a lean compute node beside a dedicated storage node when you want cheap bulk and a CPU next to your media. Two shapes, one set of patterns.
 	</Card>
 	<Card title="Proxmox + ZFS" icon="setting">
 		A hypervisor base with mirrored ZFS storage: containers for isolation, snapshots for safety, and a clean line between hot data and backups.

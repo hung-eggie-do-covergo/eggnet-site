@@ -1,9 +1,9 @@
 ---
 title: The philosophy
-description: The handful of rules that keep a single-box homelab maintainable instead of a house of cards.
+description: The handful of rules that keep a homelab maintainable instead of a house of cards.
 ---
 
-A homelab lives or dies by a few principles you commit to early. These are the ones that matter on a single box.
+A homelab lives or dies by a few principles you commit to early. These matter most on a single box, and still hold when you split compute from storage.
 
 ## 1. Boring beats clever
 
@@ -33,7 +33,7 @@ Reverse proxy, DNS zones, auth clients, container definitions — all live as te
 
 ## 7. Keep the reboot tolerable
 
-The single-box tax is shared blast radius. So: don't over-consolidate the critical plane, keep services independently restartable, and make sure the box coming back up cleanly is a thing you've actually tested. A homelab you're afraid to reboot is already broken.
+The tax of consolidation is shared blast radius — worst on a single box, smaller but still real when you split compute from storage (each box is still a failure domain of its own). So: don't over-consolidate the critical plane, keep services independently restartable, and make sure each box coming back up cleanly is a thing you've actually tested. A homelab you're afraid to reboot is already broken.
 
 ---
 
