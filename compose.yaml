@@ -1,8 +1,15 @@
+# Built on the host by Arcane — no registry, no GHCR dependency.
+#
+# Requires three things on the GitOps sync (see the eggnet-internal KB,
+# reference/deploy-notes, for how these were established):
+#   sync_directory      ON   - otherwise only compose.yaml syncs and the build
+#                              uses stale source, silently
+#   redeploy_after_sync ON   - off by default; without it files land and nothing happens
+#   no explicit image:  tag  - with one, Arcane tries to pull it and fails
 services:
   eggnet-site:
-    image: ghcr.io/hung-eggie-do-covergo/eggnet-site:bd0b7610358767074bbdb6ce1544868c93c0bfae
+    build: .
     container_name: eggnet-site
     restart: unless-stopped
     ports:
       - "8093:80"
-    pull_policy: always
